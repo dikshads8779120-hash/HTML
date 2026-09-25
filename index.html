@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Faculty &amp; Departments – BEST PU &amp; DEGREE COLLEGE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:wght@300;400;500;600;700&family=Noto+Sans+Kannada:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    /* ══ COLOR THEME (from reference site) ══ */
+    :root {
+      --blue:#003580; --blue-mid:#0055b3; --blue-light:#1a73e8;
+      --gold:#f5a623; --white:#fff; --off-white:#f4f7fc;
+      --text-dark:#111827; --text-gray:#4b5563; --border:#dde4f0;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'DM Sans',sans-serif;color:var(--text-dark);background:var(--white);overflow-x:hidden;}
+
+    /* ── TOP BAR ── */
+    .topbar{background:var(--blue);color:#cdd9f0;font-size:12px;padding:7px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;}
+    .topbar a{color:#cdd9f0;text-decoration:none;padding:2px 8px;font-size:11px;}
+    .topbar a:hover{color:var(--gold);}
+    .topbar-right{display:flex;align-items:center;flex-wrap:wrap;gap:2px;}
+
+    /* ── NAVBAR / LOGO ── */
+    nav{background:var(--white);box-shadow:0 2px 16px rgba(0,53,128,.10);position:sticky;top:0;z-index:1000;padding:0 20px;display:flex;align-items:center;justify-content:space-between;min-height:70px;gap:12px;}
+    .nav-logo{display:flex;align-items:center;gap:11px;text-decoration:none;}
+    .logo-icon{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--blue-light));display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Playfair Display',serif;font-size:20px;font-weight:800;flex-shrink:0;border:2px solid var(--gold);overflow:hidden;}
+    .logo-icon img{width:100%;height:100%;object-fit:cover;border-radius:50%;}
+    .logo-text{line-height:1.25;}
+    .logo-text .trust{display:block;font-size:9.5px;color:var(--text-gray);letter-spacing:.4px;text-transform:uppercase;}
+    .logo-text strong{display:block;font-family:'Playfair Display',serif;font-size:16px;color:var(--blue);letter-spacing:.3px;}
+    .logo-text .sub{display:block;font-size:9.5px;color:var(--text-gray);letter-spacing:1px;text-transform:uppercase;}
+    .logo-tagline{display:block;font-size:11px;color:var(--gold);font-weight:700;font-family:'Noto Sans Kannada','DM Sans',sans-serif;margin-top:1px;}
+    .nav-links{display:flex;align-items:center;gap:2px;list-style:none;}
+    .nav-links>li>a{display:block;padding:8px 12px;font-size:13px;font-weight:500;color:var(--text-dark);text-decoration:none;border-radius:6px;transition:background .2s,color .2s;white-space:nowrap;}
+    .nav-links>li>a:hover{background:var(--off-white);color:var(--blue);}
+    .nav-links>li>a.active{background:var(--off-white);color:var(--blue);font-weight:600;}
+    .btn-apply{background:var(--blue)!important;color:#fff!important;padding:9px 16px!important;border-radius:7px!important;font-weight:600!important;}
+    .btn-apply:hover{background:var(--blue-light)!important;}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;border:none;background:none;}
+    .hamburger span{display:block;width:24px;height:2px;background:var(--text-dark);border-radius:2px;transition:all .3s;}
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .hamburger.open span:nth-child(2){opacity:0;}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+    .mobile-menu{display:none;position:fixed;top:70px;left:0;right:0;background:#fff;border-top:1px solid var(--border);box-shadow:0 10px 30px rgba(0,0,0,.1);z-index:999;padding:8px 0 22px;}
+    .mobile-menu.open{display:block;}
+    .mobile-menu a{display:block;padding:13px 22px;font-size:15px;font-weight:500;color:var(--text-dark);text-decoration:none;border-bottom:1px solid var(--off-white);}
+    .mobile-menu a:hover{background:var(--off-white);color:var(--blue);}
+
+    /* ── PAGE HEAD ── */
+    .page-head{background:linear-gradient(135deg,#001d4a 0%,#003580 55%,#0055b3 100%);position:relative;overflow:hidden;padding:46px 20px 52px;}
+    .page-head::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 20% 50%,rgba(255,255,255,.05) 1px,transparent 1px);background-size:60px 60px;}
+    .page-head::after{content:"";position:absolute;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(26,115,232,.3) 0%,transparent 70%);right:-90px;top:-120px;}
+    .ph-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#a8c8ff;font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;padding:7px 14px;border-radius:100px;margin-bottom:16px;}
+    .page-head h1{font-family:'Playfair Display',serif;font-size:clamp(26px,3.6vw,44px);font-weight:800;color:#fff;line-height:1.15;margin-bottom:12px;}
+    .page-head h1 span{color:var(--gold);}
+    .page-head p{color:#a8c8ff;font-size:14.5px;line-height:1.7;max-width:660px;}
+    .head-stats{display:flex;gap:26px;margin-top:26px;flex-wrap:wrap;}
+    .hs strong{display:block;font-family:'Playfair Display',serif;font-size:26px;color:var(--gold);font-weight:700;}
+    .hs span{font-size:11px;color:#a8c8ff;letter-spacing:.5px;}
+
+    /* ── SECTION ── */
+    .section{padding:46px 20px 64px;max-width:1200px;margin:0 auto;}
+    .s-tag{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue-light);margin-bottom:8px;}
+    .s-title{font-family:'Playfair Display',serif;font-size:clamp(22px,3vw,34px);font-weight:700;color:var(--text-dark);line-height:1.2;margin-bottom:10px;}
+    .s-sub{font-size:14px;color:var(--text-gray);line-height:1.7;max-width:640px;}
+
+    /* ── DEPARTMENT TABS ── */
+    .tabs-wrap{margin:26px 0 8px;border-bottom:1px solid var(--border);}
+    .tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px;scrollbar-width:thin;}
+    .tabs::-webkit-scrollbar{height:5px;}
+    .tabs::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px;}
+    .tab{background:none;border:none;border-bottom:3px solid transparent;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;color:var(--text-gray);padding:12px 15px;cursor:pointer;white-space:nowrap;transition:color .2s,border-color .2s,background .2s;border-radius:7px 7px 0 0;display:flex;align-items:center;gap:7px;}
+    .tab:hover{color:var(--blue);background:var(--off-white);}
+    .tab.active{color:var(--blue);border-bottom-color:var(--gold);background:var(--off-white);}
+    .tab .cnt{background:var(--border);color:var(--blue);font-size:10px;font-weight:700;padding:2px 7px;border-radius:100px;}
+    .tab.active .cnt{background:var(--gold);color:#111;}
+
+    /* ── TOOLBAR ── */
+    .toolbar{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin:22px 0 6px;}
+    .dept-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--blue);display:flex;align-items:center;gap:10px;}
+    .dept-title .dt-icon{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--blue),var(--blue-light));display:flex;align-items:center;justify-content:center;font-size:17px;}
+    .dept-note{font-size:12.5px;color:var(--text-gray);margin:6px 0 4px;}
+    .search-box{position:relative;}
+    .search-box input{width:250px;max-width:100%;padding:10px 14px 10px 34px;border:1px solid var(--border);border-radius:8px;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--text-dark);background:var(--off-white);outline:none;transition:border-color .2s,background .2s;}
+    .search-box input:focus{border-color:var(--blue-light);background:#fff;}
+    .search-box .ico{position:absolute;left:11px;top:50%;transform:translateY(-50%);font-size:13px;opacity:.5;}
+
+    /* ── FACULTY COLUMNS ── */
+    .fac-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(288px,1fr));gap:16px;margin-top:20px;align-items:start;}
+    .fac-card{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:transform .2s,box-shadow .2s,border-color .2s;opacity:0;animation:rise .45s ease forwards;}
+    .fac-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,53,128,.12);border-color:var(--blue-light);}
+    .fac-card.lead{border-color:var(--gold);box-shadow:0 6px 26px rgba(245,166,35,.15);}
+    @keyframes rise{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+    .fc-top{display:flex;gap:13px;padding:16px 16px 12px;border-bottom:1px solid var(--off-white);}
+    .avatar{width:54px;height:54px;border-radius:12px;background:linear-gradient(135deg,var(--blue),var(--blue-light));color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;font-size:17px;flex-shrink:0;letter-spacing:.5px;}
+    .fac-card.lead .avatar{background:linear-gradient(135deg,#b8790f,var(--gold));color:#1a1a1a;}
+    .fc-name{font-size:15px;font-weight:600;color:var(--text-dark);line-height:1.3;margin-bottom:3px;}
+    .fc-role{font-size:11.5px;color:var(--blue);font-weight:600;line-height:1.4;}
+    .fac-card.lead .fc-role{color:#a06a00;}
+    .fc-body{padding:13px 16px 16px;}
+    .fc-row{display:flex;gap:8px;font-size:12.5px;color:var(--text-gray);line-height:1.55;margin-bottom:7px;}
+    .fc-row b{color:var(--text-dark);font-weight:600;min-width:66px;flex-shrink:0;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding-top:1px;}
+    .exp-pill{display:inline-block;background:var(--off-white);border:1px solid var(--border);color:var(--blue);font-size:11px;font-weight:700;padding:4px 10px;border-radius:100px;margin-bottom:10px;}
+    .fc-points{list-style:none;margin-top:8px;border-top:1px dashed var(--border);padding-top:10px;}
+    .fc-points li{font-size:12.5px;color:var(--text-gray);line-height:1.6;padding-left:16px;position:relative;margin-bottom:5px;}
+    .fc-points li::before{content:"▪";position:absolute;left:2px;color:var(--gold);font-size:13px;}
+    .no-result{grid-column:1/-1;text-align:center;padding:44px 20px;color:var(--text-gray);font-size:14px;background:var(--off-white);border-radius:14px;border:1px dashed var(--border);}
+
+    /* ── FOOTER ── */
+    footer{background:var(--blue);color:#a8c8ff;padding:36px 20px 22px;margin-top:10px;}
+    .f-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:28px;}
+    footer h4{color:#fff;font-family:'Playfair Display',serif;font-size:15px;margin-bottom:12px;}
+    footer p,footer a{font-size:13px;color:#a8c8ff;line-height:1.9;text-decoration:none;display:block;}
+    footer a:hover{color:var(--gold);}
+    .f-bottom{max-width:1200px;margin:24px auto 0;padding-top:16px;border-top:1px solid rgba(255,255,255,.15);font-size:12px;text-align:center;}
+
+    /* ── A11Y ── */
+    a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:6px;}
+    @media(prefers-reduced-motion:reduce){
+      *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;}
+      html{scroll-behavior:auto;}
+      .fac-card{opacity:1;}
+    }
+
+    @media(max-width:900px){
+      .nav-links{display:none;} .hamburger{display:flex;}
+      .f-inner{grid-template-columns:1fr;}
+    }
+    @media(max-width:520px){
+      .logo-text .trust{display:none;}
+      .logo-text strong{font-size:13.5px;}
+      .search-box input{width:100%;} .search-box{width:100%;}
+      .toolbar{flex-direction:column;align-items:flex-start;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ TOP BAR ══ -->
+<div class="topbar">
+  <span>📍 CSI Hospital Road, Chikkaballapur – 562101</span>
+  <div class="topbar-right">
+    <a href="tel:9845634201">📞 98456 34201</a>
+    <a href="tel:9535553012">📞 95355 53012</a>
+    <a href="#">Affiliated to Bangalore North University</a>
+  </div>
+</div>
+
+<!-- ══ NAVBAR ══ -->
+<nav>
+  <a class="nav-logo" href="#">
+    <div class="logo-icon">
+      <!-- Drop the real emblem in the folder as logo.png and it is picked up automatically -->
+      <img src="logo.png" alt="College logo" onerror="this.style.display='none';this.parentElement.textContent='B';"/>
+    </div>
+    <div class="logo-text">
+      <span class="trust">Balaji Educational and Social Trust (R.)</span>
+      <strong>BEST PU &amp; DEGREE COLLEGE</strong>
+      <span class="sub">Chikkaballapur • Est. Excellence</span>
+      <span class="logo-tagline">ಮೊದಲು ಮಾನವನಾಗು</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About Us</a></li>
+    <li><a href="#">Courses</a></li>
+    <li><a href="#faculty" class="active">Faculty &amp; Departments</a></li>
+    <li><a href="#">Contact</a></li>
+    <li><a href="#" class="btn-apply">Admissions Open</a></li>
+  </ul>
+  <button class="hamburger" id="burger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#" onclick="toggleMenu()">Home</a>
+  <a href="#" onclick="toggleMenu()">About Us</a>
+  <a href="#" onclick="toggleMenu()">Courses</a>
+  <a href="#faculty" onclick="toggleMenu()">Faculty &amp; Departments</a>
+  <a href="#" onclick="toggleMenu()">Contact</a>
+</div>
+
+<!-- ══ PAGE HEAD ══ -->
+<header class="page-head">
+  <div class="ph-inner">
+    <div class="hero-badge">✦ Recognised by Govt. of Karnataka • PU Board (MC-233)</div>
+    <h1>Faculty &amp; <span>Departments</span></h1>
+    <p>Meet the experienced and dedicated team of faculty members shaping the bright future of our students — across Science, Commerce, Computer Science and Languages.</p>
+    <div class="head-stats">
+      <div class="hs"><strong id="stDept">0</strong><span>DEPARTMENTS</span></div>
+      <div class="hs"><strong id="stFac">0</strong><span>FACULTY MEMBERS</span></div>
+      <div class="hs"><strong id="stExp">0+</strong><span>YEARS COMBINED EXPERIENCE</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ══ FACULTY SECTION ══ -->
+<section class="section" id="faculty">
+  <div class="s-tag">Our Team</div>
+  <h2 class="s-title">Department-wise Faculty Directory</h2>
+  <p class="s-sub">Click on any department below to view its faculty members along with their qualifications, teaching experience and areas of expertise.</p>
+
+  <!-- Tabs are generated by JS -->
+  <div class="tabs-wrap"><div class="tabs" id="tabs"></div></div>
+
+  <div class="toolbar">
+    <div>
+      <div class="dept-title"><span class="dt-icon" id="dtIcon">🎓</span><span id="dtName">Department</span></div>
+      <div class="dept-note" id="dtNote"></div>
+    </div>
+    <div class="search-box">
+      <span class="ico">🔍</span>
+      <input type="text" id="search" placeholder="Search faculty by name…" oninput="render()"/>
+    </div>
+  </div>
+
+  <div class="fac-grid" id="grid"></div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="f-inner">
+    <div>
+      <h4>BEST PU &amp; DEGREE COLLEGE</h4>
+      <p>Balaji Educational and Social Trust (R.)<br/>
+      Recognised by the Govt. of Karnataka and Approved by PU Board (MC-233).<br/>
+      Affiliated to Bangalore North University.</p>
+    </div>
+    <div>
+      <h4>Courses Offered</h4>
+      <a href="#">PUC – PCMB</a>
+      <a href="#">PUC – PCMCs</a>
+      <a href="#">PUC – EBACs</a>
+      <a href="#">Degree – B.Com</a>
+      <a href="#">Degree – B.C.A.</a>
+    </div>
+    <div>
+      <h4>Admission Details</h4>
+      <a href="tel:9845634201">📞 98456 34201</a>
+      <a href="tel:9535553012">📞 95355 53012</a>
+      <a href="#">📍 CSI Hospital Road, Chikkaballapur – 562101</a>
+      <a href="#">🏅 Education @ ₹1/- per year for Toppers*</a>
+    </div>
+  </div>
+  <div class="f-bottom">© <span id="yr"></span> BEST PU &amp; Degree College, Chikkaballapur. All rights reserved.</div>
+</footer>
+
+<script>
+/* ══════════════════════════════════════════════════════════
+   FACULTY DATA — department wise
+   ══════════════════════════════════════════════════════════ */
+const DEPARTMENTS = [
+  {
+    key:'leadership', name:'Principal & Leadership', icon:'🏛️',
+    note:'The visionary leadership guiding the institution.',
+    faculty:[
+      {
+        name:'Dr. Raghunath P.', role:'Principal & Chairman', quals:'M.Sc., Ph.D., MRMS, MADMA, MISTE',
+        exp:'26 Years of Teaching Experience', lead:true, subject:'Mathematics',
+        points:[
+          'Professor in Mathematics',
+          'Chairman, Balaji Educational and Social Trust (R.)',
+          'Principal, BEST PU & Degree College',
+          'Best Principal Award Winner',
+          'Best Young Research Scholar Award Winner by Ramanujan Mathematical Society, Chennai (2007)',
+          '1st Ph.D from VTU, Belagavi',
+          'Expert in CET & JEE Coaching',
+          'Formerly at BGS PU College, St. George College of Management & Science, SJC Institute of Technology, Nagarjuna College of Engineering & Technology, Nitte Meenakshi Institute of Technology, Sha-Shib College of Engineering and Reva University as Lecturer, Assistant Professor, Professor, Head of the Department, Dean and Principal'
+        ]
+      },
+      {
+        name:'Dr. Ramaiah N', role:'Director', quals:'M.A., B.Ed., Ph.D.',
+        exp:'30 Years of Teaching Experience', lead:true, subject:'Kannada',
+        points:[
+          'Retired Principal, National Degree College, Bagepalli',
+          '30 years of teaching experience in Kannada'
+        ]
+      }
+    ]
+  },
+  {
+    key:'mathematics', name:'Mathematics', icon:'📐',
+    note:'Building strong analytical foundations with CET & JEE focused mentoring.',
+    faculty:[
+      { name:'Dr. Raghunath P.', role:'Professor in Mathematics / Principal', quals:'M.Sc., Ph.D., MRMS, MADMA, MISTE', exp:'26 Years of Teaching Experience', lead:true,
+        points:['Expert in CET & JEE Coaching','1st Ph.D from VTU, Belagavi','Best Young Research Scholar Award Winner – Ramanujan Mathematical Society, Chennai (2007)'] },
+      { name:'Prof. Manjunath K.V.', role:'Faculty – Mathematics', quals:'M.Sc., M.Phil., MBA, MCA', exp:'22 Years of Teaching Experience',
+        points:['Expert in CET & JEE Coaching','Expert in Personality Development Training'] },
+      { name:'Prof. Srinath D.R.', role:'Faculty – Mathematics', quals:'M.Sc., B.Ed.', exp:'08 Years of Teaching Experience',
+        points:['Expert in CET & JEE Coaching'] },
+      { name:'Prof. Karthik V.', role:'Faculty – Mathematics', quals:'M.Sc., B.Ed.', exp:'12 Years of Teaching Experience',
+        points:['Expert in CET & JEE Coaching'] },
+      { name:'Prof. Dadapeer', role:'Faculty – Mathematics', quals:'M.Sc., B.Ed.', exp:'04 Years of Teaching Experience', points:[] },
+      { name:'Prof. Praveen K.V.', role:'Faculty – Mathematics', quals:'M.Sc., B.Ed.', exp:'03 Years of Teaching Experience', points:[] }
+    ]
+  },
+  {
+    key:'physics', name:'Physics', icon:'🔭',
+    note:'Concept-driven Physics teaching with integrated NEET, CET and JEE coaching.',
+    faculty:[
+      { name:'Prof. Nanda Kumar B R', role:'Head – Physics', quals:'M.Sc., B.Ed.', exp:'15 Years of Teaching Experience', lead:true,
+        points:['Expert in NEET, CET & JEE Coaching'] },
+      { name:'Prof. Madhusudhan S.', role:'Faculty – Physics', quals:'M.Sc., B.Ed.', exp:'12 Years of Teaching Experience',
+        points:['Expert in NEET, CET & JEE Coaching'] },
+      { name:'Prof. Mahesh', role:'Faculty – Physics', quals:'M.Sc., B.Ed.', exp:'03 Years of Teaching Experience', points:[] }
+    ]
+  },
+  {
+    key:'chemistry', name:'Chemistry', icon:'⚗️',
+    note:'Led by a retired Government PU College Principal with 35 years of experience.',
+    faculty:[
+      { name:'Prof. T G Sridharmurthy', role:'Head – Chemistry', quals:'M.Sc., M.Phil.', exp:'35 Years of Teaching Experience', lead:true,
+        points:['Retired Principal, Govt. P U College','Expert in NEET, CET & JEE Coaching','Question Paper Setter of II PUC & KCET for several years','Author – JEEVITH Publications, Chemistry'] },
+      { name:'Prof. Veena C.S.', role:'Faculty – Chemistry', quals:'M.Sc., B.Ed.', exp:'05 Years of Teaching Experience', points:[] },
+      { name:'Prof. Naresh', role:'Faculty – Chemistry', quals:'M.Sc., B.Ed.', exp:'02 Years of Teaching Experience', points:[] },
+      { name:'Prof. Meghana C.J.', role:'Faculty – Chemistry', quals:'M.Sc., B.Ed.', exp:'01 Year of Teaching Experience', points:[] }
+    ]
+  },
+  {
+    key:'biology', name:'Biology', icon:'🧬',
+    note:'NEET and CET oriented Biology preparation for aspiring medical students.',
+    faculty:[
+      { name:'Prof. Ramesh Reddy', role:'Head – Biology', quals:'M.Sc., B.Ed., M.Phil.', exp:'24 Years of Teaching Experience', lead:true,
+        points:['Expert in NEET & CET Coaching'] },
+      { name:'Prof. Umme Kulsum A.', role:'Faculty – Biology', quals:'M.Sc., B.Ed.', exp:'04 Years of Teaching Experience', points:[] },
+      { name:'Prof. Ambika', role:'Faculty – Biology', quals:'M.Sc., B.Ed.', exp:'08 Years of Teaching Experience', points:[] }
+    ]
+  },
+  {
+    key:'computer', name:'Computer Science', icon:'💻',
+    note:'Supporting PCMCs and B.C.A. with programming and technology fundamentals.',
+    faculty:[
+      { name:'Prof. Manjunatha B.R.', role:'Faculty – Computer Science', quals:'MCA, B.Ed.', exp:'06 Years of Teaching Experience', lead:true, points:[] },
+      { name:'Prof. Ashok T V.', role:'Faculty – Computer Science', quals:'B.E., MCA', exp:'04 Years of Teaching Experience', points:[] },
+      { name:'Prof. Shalini R.', role:'Faculty – Computer Science', quals:'B.E.', exp:'04 Years of Teaching Experience', points:[] },
+      { name:'Prof. Channabasava Patil', role:'Faculty – Computer Science', quals:'MCA', exp:'03 Years of Teaching Experience', points:[] },
+      { name:'Prof. Lakshmipathi', role:'Faculty – Computer Science', quals:'B.E., M.Tech.', exp:'03 Years of Teaching Experience', points:[] }
+    ]
+  },
+  {
+    key:'commerce', name:'Commerce', icon:'📊',
+    note:'Serving EBACs, B.Com and CA Foundation aspirants with strong accountancy grounding.',
+    faculty:[
+      { name:'Prof. Malini', role:'Faculty – Commerce', quals:'M.Com., B.Ed.', exp:'16 Years of Teaching Experience', lead:true, points:[] },
+      { name:'Prof. Madan Kumar N.', role:'Faculty – Commerce', quals:'M.Com., B.Ed.', exp:'06 Years of Teaching Experience', points:[] },
+      { name:'Prof. Archana M.L.', role:'Faculty – Commerce', quals:'M.Com., B.Ed.', exp:'06 Years of Teaching Experience', points:[] },
+      { name:'Prof. Lavanya', role:'Faculty – Commerce', quals:'M.Com., B.Ed.', exp:'06 Years of Teaching Experience', points:[] },
+      { name:'Prof. Naveen V.', role:'Faculty – Commerce', quals:'M.Com., B.Ed. (Ph.D)', exp:'05 Years of Teaching Experience', points:['Pursuing Ph.D in Commerce'] },
+      { name:'Prof. Rajesh A.', role:'Faculty – Commerce', quals:'M.Com.', exp:'03 Years of Teaching Experience', points:[] },
+      { name:'Prof. Mounika K.Y.', role:'Faculty – Commerce', quals:'M.Com., B.Ed.', exp:'02 Years of Teaching Experience', points:[] }
+    ]
+  },
+  {
+    key:'economics', name:'Economics', icon:'📈',
+    note:'Economics faculty supporting the EBACs and B.Com streams.',
+    faculty:[
+      { name:'Prof. Shashikala K.', role:'Faculty – Economics', quals:'M.A. (Gold Medalist), B.Ed.', exp:'13 Years of Teaching Experience', lead:true,
+        points:['Gold Medalist in M.A. Economics'] },
+      { name:'Prof. Prabhavathi H.M.', role:'Faculty – Economics', quals:'M.A., B.Ed.', exp:'07 Years of Teaching Experience', points:[] }
+    ]
+  },
+  {
+    key:'kannada', name:'Kannada', icon:'📖',
+    note:'Nurturing language, literature and cultural values.',
+    faculty:[
+      { name:'Prof. Nagaraju C.S.', role:'Faculty – Kannada', quals:'M.A., M.Ed., M.Phil.', exp:'20 Years of Teaching Experience', lead:true, points:[] },
+      { name:'Prof. Vijaya G.N.', role:'Faculty – Kannada', quals:'M.A. (Kannada), B.Ed., Hindi B.Ed.', exp:'20 Years of Teaching Experience',
+        points:['Qualified in both Kannada and Hindi teaching'] },
+      { name:'Prof. Ramesh V Gundlagurki', role:'Faculty – Kannada', quals:'M.A., B.Ed.', exp:'08 Years of Teaching Experience', points:[] }
+    ]
+  },
+  {
+    key:'english', name:'English', icon:'✒️',
+    note:'Developing communication skills and confident language ability.',
+    faculty:[
+      { name:'Prof. Manjunatha H.', role:'Faculty – English', quals:'M.A., B.Ed.', exp:'11 Years of Teaching Experience', lead:true, points:[] },
+      { name:'Prof. Vijay Venkatesh', role:'Faculty – English', quals:'M.A., B.Ed., KSET', exp:'05 Years of Teaching Experience',
+        points:['KSET Qualified'] },
+      { name:'Prof. Leelavathi G.', role:'Faculty – English', quals:'M.A., B.Ed.', exp:'02 Years of Teaching Experience', points:[] }
+    ]
+  }
+];
+
+/* ══ STATE ══ */
+let activeKey = DEPARTMENTS[0].key;
+
+/* ══ HELPERS ══ */
+function initials(name){
+  const clean = name.replace(/^(Dr\.|Prof\.|Mr\.|Mrs\.|Ms\.)\s*/i,'').trim();
+  const parts = clean.split(/\s+/).filter(Boolean);
+  if (!parts.length) return '?';
+  const a = parts[0][0] || '';
+  const b = parts.length > 1 ? (parts[1][0] || '') : '';
+  return (a + b).toUpperCase();
+}
+function years(exp){ const m = exp.match(/\d+/); return m ? parseInt(m[0],10) : 0; }
+
+/* ══ BUILD TABS ══ */
+function buildTabs(){
+  const wrap = document.getElementById('tabs');
+  wrap.innerHTML = '';
+  DEPARTMENTS.forEach(d => {
+    const b = document.createElement('button');
+    b.className = 'tab' + (d.key === activeKey ? ' active' : '');
+    b.dataset.key = d.key;
+    b.innerHTML = `<span>${d.icon}</span><span>${d.name}</span><span class="cnt">${d.faculty.length}</span>`;
+    b.onclick = () => openDept(d.key);
+    wrap.appendChild(b);
+  });
+}
+
+/* ══ OPEN A DEPARTMENT ══ */
+function openDept(key){
+  activeKey = key;
+  document.getElementById('search').value = '';
+  document.querySelectorAll('.tab').forEach(t =>
+    t.classList.toggle('active', t.dataset.key === key));
+  const tab = document.querySelector(`.tab[data-key="${key}"]`);
+  if (tab) tab.scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'});
+  render();
+}
+
+/* ══ RENDER FACULTY COLUMNS ══ */
+function render(){
+  const dept = DEPARTMENTS.find(d => d.key === activeKey);
+  const q = document.getElementById('search').value.trim().toLowerCase();
+
+  document.getElementById('dtIcon').textContent = dept.icon;
+  document.getElementById('dtName').textContent = dept.name;
+  document.getElementById('dtNote').textContent = dept.note;
+
+  const list = q
+    ? dept.faculty.filter(f =>
+        (f.name + ' ' + f.role + ' ' + f.quals).toLowerCase().includes(q))
+    : dept.faculty;
+
+  const grid = document.getElementById('grid');
+  grid.innerHTML = '';
+
+  if (!list.length){
+    grid.innerHTML = `<div class="no-result">No faculty found matching “${q}” in ${dept.name}.</div>`;
+    return;
+  }
+
+  list.forEach((f, i) => {
+    const card = document.createElement('article');
+    card.className = 'fac-card' + (f.lead ? ' lead' : '');
+    card.style.animationDelay = (i * 0.05) + 's';
+    card.innerHTML = `
+      <div class="fc-top">
+        <div class="avatar">${initials(f.name)}</div>
+        <div>
+          <div class="fc-name">${f.name}</div>
+          <div class="fc-role">${f.role}</div>
+        </div>
+      </div>
+      <div class="fc-body">
+        <span class="exp-pill">🎓 ${f.exp}</span>
+        <div class="fc-row"><b>Qualification</b><span>${f.quals}</span></div>
+        ${f.subject ? `<div class="fc-row"><b>Subject</b><span>${f.subject}</span></div>` : ''}
+        ${f.points && f.points.length
+          ? `<ul class="fc-points">${f.points.map(p => `<li>${p}</li>`).join('')}</ul>`
+          : ''}
+      </div>`;
+    grid.appendChild(card);
+  });
+}
+
+/* ══ HEADER STATS ══ */
+function buildStats(){
+  const seen = new Set();
+  let total = 0;
+  DEPARTMENTS.forEach(d => d.faculty.forEach(f => {
+    if (seen.has(f.name)) return;
+    seen.add(f.name);
+    total += years(f.exp);
+  }));
+  document.getElementById('stDept').textContent = DEPARTMENTS.length - 1; // excludes Leadership
+  document.getElementById('stFac').textContent  = seen.size;
+  document.getElementById('stExp').textContent  = total + '+';
+}
+
+/* ══ MOBILE MENU ══ */
+function toggleMenu(){
+  document.getElementById('mobileMenu').classList.toggle('open');
+  document.getElementById('burger').classList.toggle('open');
+}
+
+/* ══ INIT ══ */
+document.getElementById('yr').textContent = new Date().getFullYear();
+buildTabs();
+buildStats();
+render();
+</script>
+</body>
+</html>
